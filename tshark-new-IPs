@@ -1,0 +1,6 @@
+#!/bin/bash
+
+tshark -w /mnt/ou2 -T fields -e ip.dst -l -q |  awk '!seen[$0]++ {print; fflush()}' | while read i
+do
+echo $i
+done
